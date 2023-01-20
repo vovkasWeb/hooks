@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
 
-function App() {
+const App= ()=>{
+
+const dublAddValue=i=>{
+	setNumber(number=>number * number);
+}
+const dublDelValue=i=>{
+	setNumber(number=>number / number);
+}
+const rundlValue=()=>{
+	setNumber(number=> Math.random()*(50-1)+1);
+}
+const resetValue=()=>{
+	setNumber(number=>2);
+}
+	const [number,setNumber] = useState(2);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{number}</h1>
+		<div>
+			<button onClick={()=>dublAddValue(number)}>int</button>
+			<button onClick={()=>dublDelValue(number)}>dec</button>
+			<button onClick={()=>rundlValue()}>run</button>
+			<button onClick={()=>resetValue()}>reset</button>
+		</div>
     </div>
   );
 }
